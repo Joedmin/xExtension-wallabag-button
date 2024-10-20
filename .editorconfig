@@ -10,7 +10,6 @@ insert_final_newline = true
 
 [.{php,phtml}]
 indent_size = 2
-indent_style = tab
 
 [robots.txt]
 insert_final_newline = false

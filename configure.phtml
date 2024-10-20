@@ -1,15 +1,17 @@
 <?php
-$instance_url = FreshRSS_Context::$user_conf->wallabag_instance_url;
-$client_id = FreshRSS_Context::$user_conf->wallabag_client_id;
-$client_secret = FreshRSS_Context::$user_conf->wallabag_client_secret;
-$username = FreshRSS_Context::$user_conf->wallabag_username;
-$access_token = FreshRSS_Context::$user_conf->wallabag_access_token;
-$refresh_token = FreshRSS_Context::$user_conf->wallabag_refresh_token;
-$keyboard_shortcut = FreshRSS_Context::$user_conf->wallabag_keyboard_shortcut;
+declare(strict_types=1);
+/** @var WallabagButtonExtension $this */
+$instance_url = FreshRSS_Context::userConf()->attributeString('wallabag_instance_url');
+$client_id = FreshRSS_Context::userConf()->attributeString('wallabag_client_id');
+$client_secret = FreshRSS_Context::userConf()->attributeString('wallabag_client_secret');
+$username = FreshRSS_Context::userConf()->attributeString('wallabag_username');
+$access_token = FreshRSS_Context::userConf()->attributeString('wallabag_access_token');
+$refresh_token = FreshRSS_Context::userConf()->attributeString('wallabag_refresh_token');
+$keyboard_shortcut = FreshRSS_Context::userConf()->attributeString('wallabag_keyboard_shortcut');
 ?>
 
-<form action="<?php echo _url('extension', 'configure', 'e', urlencode($this->getName())); ?>" method="post">
-  <input type="hidden" name="_csrf" value="<?php echo FreshRSS_Auth::csrfToken(); ?>" />
+<form action="<?= _url('extension', 'configure', 'e', urlencode($this->getName())) ?>" method="post">
+  <input type="hidden" name="_csrf" value="<?= FreshRSS_Auth::csrfToken() ?>" />
   <div class="form-group">
     <label class="group-name" for="keyboard_shortcut"><?php echo _t('ext.wallabagButton.configure.keyboard_shortcut'); ?></label>
     <div class="group-controls">
@@ -40,7 +42,7 @@ $keyboard_shortcut = FreshRSS_Context::$user_conf->wallabag_keyboard_shortcut;
 
       <label class="group-name" for="password"><?php echo _t('ext.wallabagButton.configure.password'); ?></label>
       <div class="group-controls">
-        <input type="password" name="password" id="password" value="<?php echo $password; ?>" required>
+        <input type="password" name="password" id="password" value="" required>
       </div>
 
       <label class="group-name" for="client_id"><?php echo _t('ext.wallabagButton.configure.client_id'); ?></label>

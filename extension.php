@@ -2,7 +2,8 @@
 
 class WallabagButtonExtension extends Minz_Extension
 {
-  public function init()
+  #[\Override]
+  public function init(): void
   {
     $this->registerTranslates();
 
@@ -14,14 +15,15 @@ class WallabagButtonExtension extends Minz_Extension
     $this->registerViews();
   }
 
-  public function handleConfigureAction()
+  #[\Override]
+  public function handleConfigureAction(): void
   {
     $this->registerTranslates();
 
     if (Minz_Request::isPost()) {
-      $keyboard_shortcut = Minz_Request::param('keyboard_shortcut', '');
-      FreshRSS_Context::$user_conf->wallabag_keyboard_shortcut = $keyboard_shortcut;
-      FreshRSS_Context::$user_conf->save();
+      $keyboard_shortcut = Minz_Request::paramString('keyboard_shortcut');
+      FreshRSS_Context::userConf()->_attribute('wallabag_keyboard_shortcut', $keyboard_shortcut);
+      FreshRSS_Context::userConf()->save();
     }
   }
 }
