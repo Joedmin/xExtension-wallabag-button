@@ -4,7 +4,7 @@ A [FreshRSS](https://freshrss.org/) extension which adds a [Wallabag](https://wa
 With this extension you can simply press the Wallabag Button next to an article or a custom keyboard shortcut to share it with Wallabag. Everything else happens in the background while you can continue reading articles without any further interruptions.
 
 ## Download and setup
-1. Download the [latest release](https://github.com/christian-putzke/freshrss-wallabag-button/releases)
+1. Download the [latest release](https://github.com/Joedmin/xExtension-wallabag-button/releases)
 2. Extract and upload it to the `./extensions` folder of your FreshRSS installation
 3. Go to `<wallabag_intance_url>/developer` by clicking the `API clients management` menu
 4. Create a new API Client with the name of your choice
