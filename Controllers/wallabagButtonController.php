@@ -1,9 +1,16 @@
 <?php
 
+require_once __DIR__ . '/../Models/View.php';
+
 class FreshExtension_wallabagButton_Controller extends Minz_ActionController
 {
   /** @var WallabagButton\View */
   protected $view;
+
+  public function __construct()
+  {
+    parent::__construct(\WallabagButton\View::class);
+  }
 
   public function jsVarsAction(): void
   {
